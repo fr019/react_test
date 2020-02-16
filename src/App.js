@@ -13,6 +13,7 @@ function App() {
   const [keywords, setKeywords] = useState(['crowd', 'princess', '100km', 'man', 'huge']);
 
   const addHandler = keyword => setKeywords(keywords.concat(keyword));
+  const removeHandler = keyword => setKeywords(keywords.filter(it => it !== keyword));
   const editHandler = text => setText(text);
   const editModeHandler = () => setEdit(!edit);
 
@@ -46,7 +47,7 @@ function App() {
                   edit={edit} />
           </Col>
           <Col span={6} style={{ height: '100%' }}>
-            <Keywords keywords={keywords} addHandler={addHandler} />
+            <Keywords keywords={keywords} addHandler={addHandler} removeHandler={removeHandler} />
           </Col>
         </Row>
       </Content>
